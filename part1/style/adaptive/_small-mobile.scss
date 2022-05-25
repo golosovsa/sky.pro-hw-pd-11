@@ -1,0 +1,109 @@
+@include frontier($site-mobile-width, 32px) {
+    .align{
+        padding-left: calc(50% - #{$site-small-mobile-width / 2});
+        padding-right: calc(50% - #{$site-small-mobile-width / 2});
+    }
+
+    .header {
+        height: 300px;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+
+        &__item {
+
+            &_for-desktop {
+                display: none;
+            }
+        }
+    }
+
+    .social {
+
+        &__icons {
+            column-gap: 16px;
+        }
+
+        &__img {
+            width: 35px;
+            height: 35px;
+        }
+
+        &__lines {
+            height: 50%;
+            padding: 10px 18px 4px 18px;
+        }
+
+        &__line {
+            height: 16px;
+        }
+
+        &__nickname {
+            @include text(#fff, 400, 30px, 38px);
+        }
+
+        &_desktop-visible {
+            display: none;
+        }
+
+        &_mobile-visible {
+            display: flex;
+        }
+    }
+
+    .section {
+        &__header {
+            column-gap: 15px;
+        }
+
+        &__icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        &__one-column {
+            margin-top: 16px;
+            row-gap: 5px;
+        }
+
+        &__two-column {
+            grid-template-columns: 1fr;
+            margin-top: 16px;
+            row-gap: 5px;
+            column-gap: 22px;
+        }
+
+        &__text {
+            text-indent: 44px;
+        }
+
+        &__img {
+            border-radius: 8px;
+        }
+
+        &__list {
+            padding-left: 30px;
+        }
+
+        &__list-item {
+            @include text(#2C2C2C, 500, 16px, 32px);
+            column-gap: 16px;
+
+            &::before {
+                width: 13.333px;
+                height: 8.666px;
+            }
+        }
+    }
+
+    .footer {
+        margin-top: 64px;
+        height: 300px;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        
+        &__title {
+            @include text(#fff, 700, 24.5px, 30px);
+            width: 170px;
+        }
+    }
+}

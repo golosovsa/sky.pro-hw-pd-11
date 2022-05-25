@@ -1,0 +1,143 @@
+@include frontier($site-big-desktop-width, 120px) {
+    .align{
+        padding-left: calc(50% - #{$site-desktop-width / 2});
+        padding-right: calc(50% - #{$site-desktop-width / 2});
+    }
+
+    .header {
+        height: 256px;
+    }
+
+    .avatar {
+        column-gap: 32px;
+
+        &__back {
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+        }
+
+        &__img {
+            width: 112px;
+            height: 112px;
+            margin: 4px;
+            border-radius: 66px;
+        }
+
+        &__info {
+            row-gap: 26px;
+
+        }
+
+        &__title {
+            @include text(#fff, 700, 33px, 39px);
+        }
+
+        &__text {
+            @include text(transparent, 700, 26px, 31px);
+        }
+    }
+
+    .contacts {
+        row-gap: 22px;
+        
+        &__item {
+            column-gap: 12px;
+        }
+
+        &__img {
+            width: 35px;
+            height: 25px;
+        }
+
+        &__text {
+            @include text(#fff, 500, 20px, 24px);
+        }
+    }
+
+    .social {
+
+        &__icons {
+            column-gap: 21px;
+        }
+
+        &__img {
+            width: 45px;
+            height: 45px;
+        }
+
+        &__lines {
+            height: 50%;
+            padding: 10px 22px 4px 22px;
+        }
+
+        &__line {
+            height: 16px;
+        }
+
+        &__nickname {
+            @include text(#fff, 400, 38px, 44px);
+        }
+    }
+
+    .section {
+        margin-top: 64px;
+
+        &__header {
+            column-gap: 20px;
+        }
+
+        &__icon {
+            width: 44px;
+            height: 44px;
+        }
+
+        &__title {
+            @include text(#4B76C4, 700, 36px, 43px);
+        }
+
+        &__one-column {
+            margin-top: 32px;
+            row-gap: 10px;
+        }
+
+        &__two-column {
+            margin-top: 32px;
+            row-gap: 10px;
+            column-gap: 64px;
+        }
+
+        &__text {
+            @include text(#2C2C2C, 400, 23px, 41px);
+
+            em {
+                @include text(#2C2C2C, 700, 23px, 44px);
+            }
+        }
+
+        &__img {
+            border-radius: 30px;
+        }
+
+        &__list {
+            padding-left: 60px;
+        }
+
+        &__list-item {
+            @include text(#2C2C2C, 500, 24px, 50px);
+            column-gap: 30px;
+
+            &::before {
+                width: 20px;
+                height: 13px;
+            }
+        }
+    }
+
+    .footer {
+        height: 256px;
+        &__title {
+            @include text(#fff, 700, 33px, 39px);
+        }
+    }
+}

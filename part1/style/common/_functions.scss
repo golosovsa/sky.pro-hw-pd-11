@@ -1,0 +1,3 @@
+@function get-gradient($angle, $first-percent, $second-percent) {
+    @return linear-gradient($angle, $gradient-color-1 $first-percent, $gradient-color-2 $second-percent);
+}
