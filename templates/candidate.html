@@ -1,0 +1,76 @@
+{% set home_active = "" %}
+{% set search_active = "" %}
+{% set skill_active = "" %}
+{% set admin_active = "" %}
+{% set head_title = "Candidate" %}
+{% set search_name = "" %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="alert alert-danger" role="alert">
+                    !ERROR! !Candidate not exist! !ERROR!
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col">
+                <form action="/update/" method="post">
+                    <div class="mb-3 align-items-center">
+                        <img src="https://picsum.photos/200" alt="{{ candidate.name }}">
+                    </div>
+                    <input type="hidden" name="id" value="{{ candidate.id }}">
+                    <input type="hidden" name="picture" value="{{ candidate.picture }}">
+                    <fieldset disabled>
+                        <div class="mb-3">
+                            <label for="picture" class="form-label">Picture</label>
+                            <input type="text" id="picture" class="form-control" value="{{ candidate.picture }}">
+                        </div>
+                    </fieldset>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Your name" value="{{ candidate.name }}">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" value="male" id="flexRadioDefault1" {% if candidate.gender == 'male' %} checked {% endif %}>
+                            <label class="form-check-label" for="flexRadioDefault1">male</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" value="female" id="flexRadioDefault2" {% if candidate.gender == 'female' %} checked {% endif %}>
+                            <label class="form-check-label" for="flexRadioDefault2">female</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" class="form-control" name="age" id="age" value="{{ candidate.age }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Position</label>
+                        <input type="text" class="form-control" name="position" id="position" value="{{ candidate.position }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="skills" class="form-label">skills</label>
+                        <textarea class="form-control" name="skills" id="skills">{{ candidate.skills }}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary mb-3">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

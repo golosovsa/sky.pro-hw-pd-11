@@ -1,0 +1,59 @@
+{% set home_active = "" %}
+{% set search_active = "" %}
+{% set skill_active = "active" %}
+{% set admin_active = "" %}
+{% set head_title = "Skills" %}
+{% set search_name = "" %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="alert alert-danger" role="alert">
+                    !ERROR! !Skill not exist! !ERROR!
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+
+<section class="section">
+  <div class="container">
+    <ul class="nav nav-tabs mb-3">
+      {% for skill in skills %}
+          <li class="nav-item">
+          {% if skill == filter_skill %}
+            <a class="nav-link active" aria-current="page" href="/skill/{{skill}}/">{{ skill|capitalize }}</a>
+          {% else %}
+            <a class="nav-link" href="/skill/{{skill}}/">{{ skill|capitalize }}</a>
+          {% endif %}
+          </li>
+      {% endfor %}
+    </ul>
+    <div class="row">
+      <div class="row justify-content-between">
+        {% for candidate in candidates %}
+        <div class="col mb-3">
+                  <div class="card" style="width: 350px;">
+                      <img src="https://picsum.photos/id/{{ candidate.id }}/350" class="card-img-top" alt="{{ candidate.name }}" title="{{ candidate.name }}">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ candidate.name }}</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="/candidate/{{ candidate.id }}/" class="btn btn-primary">Read more...</a>
+                      </div>
+                  </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endif %}
+{% endblock %}

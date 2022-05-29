@@ -1,0 +1,28 @@
+.section {
+    margin-top: 32px;
+}
+
+.card {
+    max-width: calc(350px);
+    padding: 0 0;
+}
+
+.section__title {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.carousel-indicators {
+    bottom: -16px;
+}
+
+.section_gray {
+    background-color: #ccc;
+    padding-top: 32px;
+    padding-bottom: 32px;
+} 
+
+.carousel-inner {
+    padding-top: 16px;
+    padding-bottom: 32px;
+}

@@ -1,0 +1,51 @@
+{% set home_active = "" %}
+{% set search_active = "active" %}
+{% set skill_active = "" %}
+{% set admin_active = "" %}
+{% set head_title = "Search" %}
+{% set search_name = name %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="section">
+    <div class="container">
+        <h2 class="section__title">
+        {% if name == "" %}
+            Filter by empty show all records
+        {% else %}
+            Filter by "{{ name }}" found {{ candidates|length }} records
+        {% endif %}
+        </h2>
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            {% for candidate in candidates %}
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-heading{{ candidate.id }}"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{{ candidate.id }}" aria-expanded="true" aria-controls="panelsStayOpen-collapse{{ candidate.id }}"A>{{ candidate.name }}</button></h2>
+                <div id="panelsStayOpen-collapse{{ candidate.id }}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading{{ candidate.id }}">
+                    <div class="accordion-body">
+                        <div class="row row-cols-auto justify-content-start">
+                            <div class="col p-3">
+                                <img src="https://picsum.photos/id/{{ candidate.id }}/200" alt="{{ candidate.name }}">
+                            </div>
+                            <div class="col p-3">
+                                <ul class="list-group">
+                                    <li class="list-group-item"><strong>Gender:</strong> {{ candidate.gender }} </li>
+                                    <li class="list-group-item"><strong>Age:</strong> {{ candidate.age }}</li>
+                                    <li class="list-group-item"><strong>Position: </strong> {{ candidate.position }} </li>
+                                    <li class="list-group-item"><strong>Skills: </strong> {{ candidate.skills }} </li>
+                                </ul>
+                            </div>
+                            <div class="col p-3">
+                                <a href="/candidate/{{ candidate.id }}/" class="btn btn-primary">Read more...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

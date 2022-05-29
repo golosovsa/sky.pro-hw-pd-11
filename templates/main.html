@@ -1,0 +1,59 @@
+{% set home_active = "active" %}
+{% set search_active = "" %}
+{% set skill_active = "" %}
+{% set admin_active = "" %}
+{% set head_title = "Main" %}
+{% set search_name = "" %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="section section_gray">
+
+    <div class="container">
+        <h2 class="section__title">Our candidates</h2>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                {% set vars = {"first_button": "class=active aria-current=true"} %}
+                {% for candidate in candidates %}
+
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ loop.index - 1 }}" {{ vars.first_button }} aria-label="{{ candidate.name }}"></button>
+                {% if vars.update({"first_button": ""}) %}{% endif %}
+                {% endfor %}
+            </div>
+            <div class="carousel-inner">
+
+                {% set vars = {"carousel_active": "active"} %}
+                    {% for candidate in candidates %}
+
+                        <div class="carousel-item {{ vars.carousel_active }}">
+                            <div class="row w-100 justify-content-center">
+                                <div class="card">
+                                    <img src="https://picsum.photos/id/{{ candidate.id }}/350" class="card-img-top" alt="{{ candidate.name }}" title="{{ candidate.name }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ candidate.name }}</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="/candidate/{{ candidate.id }}/" class="btn btn-primary">Read more...</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% if vars.update({"carousel_active": ""}) %}{% endif %}
+                    {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        
+        </div>
+    </div>
+</section>
+
+{% endblock %}
