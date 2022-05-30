@@ -5,7 +5,7 @@ In the last homework, we created a simple web application using the flask framew
 ## Part 1. What should you do:  
 ### Step 0 :  
 
-!(pic)[https://skyengpublic.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fd82ac4ae-31a1-4082-a134-b73e9d0ca886%2F%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2022-02-14_%D0%B2_22.29.33.png?table=block&id=c17cd724-5bce-417c-968a-a24d6675cf0f&spaceId=0771f0bb-b4cb-4a14-bc05-94cbd33fc70d&width=2000&userId=&cache=v2]
+![pic](https://skyengpublic.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fd82ac4ae-31a1-4082-a134-b73e9d0ca886%2F%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2022-02-14_%D0%B2_22.29.33.png?table=block&id=c17cd724-5bce-417c-968a-a24d6675cf0f&spaceId=0771f0bb-b4cb-4a14-bc05-94cbd33fc70d&width=2000&userId=&cache=v2)
 
 Creat an HTML file about yourself
 
